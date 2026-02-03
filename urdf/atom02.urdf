@@ -176,7 +176,7 @@
     <parent link="left_ankle_pitch_link"/>
     <child link="left_ankle_roll_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-0.2618" upper="0.2618"/>
+    <limit effort="30" velocity="12" lower="-0.2618" upper="0.2618"/>
   </joint>
   <!-- Joint from left_knee_link to left_ankle_pitch_link -->
   <joint name="left_ankle_pitch_joint" type="revolute">
@@ -184,7 +184,7 @@
     <parent link="left_knee_link"/>
     <child link="left_ankle_pitch_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-0.6981" upper="0.5236"/>
+    <limit effort="30" velocity="12" lower="-0.6981" upper="0.5236"/>
   </joint>
   <!-- Joint from left_hip_yaw_link to left_knee_link -->
   <joint name="left_knee_joint" type="revolute">
@@ -192,7 +192,7 @@
     <parent link="left_hip_yaw_link"/>
     <child link="left_knee_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-2.7925" upper="0.2618"/>
+    <limit effort="120" velocity="25" lower="-2.7925" upper="0.2618"/>
   </joint>
   <!-- Joint from left_hip_roll_link to left_hip_yaw_link -->
   <joint name="left_hip_yaw_joint" type="revolute">
@@ -200,7 +200,7 @@
     <parent link="left_hip_roll_link"/>
     <child link="left_hip_yaw_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-1.9199" upper="1.9199"/>
+    <limit effort="120" velocity="25" lower="-1.9199" upper="1.9199"/>
   </joint>
   <!-- Joint from left_hip_pitch_link to left_hip_roll_link -->
   <joint name="left_hip_roll_joint" type="revolute">
@@ -208,7 +208,7 @@
     <parent link="left_hip_pitch_link"/>
     <child link="left_hip_roll_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-0.1745" upper="2.6878"/>
+    <limit effort="120" velocity="25" lower="-0.1745" upper="2.6878"/>
   </joint>
   <!-- Joint from base_link to left_hip_pitch_link -->
   <joint name="left_hip_pitch_joint" type="revolute">
@@ -216,7 +216,7 @@
     <parent link="base_link"/>
     <child link="left_hip_pitch_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-2.862" upper="2.862"/>
+    <limit effort="120" velocity="25" lower="-2.862" upper="2.862"/>
   </joint>
   <!-- Link right_hip_pitch_link -->
   <link name="right_hip_pitch_link">
@@ -368,7 +368,7 @@
     <parent link="right_ankle_pitch_link"/>
     <child link="right_ankle_roll_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-0.2618" upper="0.2618"/>
+    <limit effort="30" velocity="12" lower="-0.2618" upper="0.2618"/>
   </joint>
   <!-- Joint from right_knee_link to right_ankle_pitch_link -->
   <joint name="right_ankle_pitch_joint" type="revolute">
@@ -376,7 +376,7 @@
     <parent link="right_knee_link"/>
     <child link="right_ankle_pitch_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-0.6981" upper="0.5236"/>
+    <limit effort="30" velocity="12" lower="-0.6981" upper="0.5236"/>
   </joint>
   <!-- Joint from right_hip_yaw_link to right_knee_link -->
   <joint name="right_knee_joint" type="revolute">
@@ -384,7 +384,7 @@
     <parent link="right_hip_yaw_link"/>
     <child link="right_knee_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-0.2618" upper="2.7925"/>
+    <limit effort="120" velocity="25" lower="-0.2618" upper="2.7925"/>
   </joint>
   <!-- Joint from right_hip_roll_link to right_hip_yaw_link -->
   <joint name="right_hip_yaw_joint" type="revolute">
@@ -392,7 +392,7 @@
     <parent link="right_hip_roll_link"/>
     <child link="right_hip_yaw_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-1.9199" upper="1.9199"/>
+    <limit effort="120" velocity="25" lower="-1.9199" upper="1.9199"/>
   </joint>
   <!-- Joint from right_hip_pitch_link to right_hip_roll_link -->
   <joint name="right_hip_roll_joint" type="revolute">
@@ -400,7 +400,7 @@
     <parent link="right_hip_pitch_link"/>
     <child link="right_hip_roll_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-2.6878" upper="0.1745"/>
+    <limit effort="120" velocity="25" lower="-2.6878" upper="0.1745"/>
   </joint>
   <!-- Joint from base_link to right_hip_pitch_link -->
   <joint name="right_hip_pitch_joint" type="revolute">
@@ -408,7 +408,7 @@
     <parent link="base_link"/>
     <child link="right_hip_pitch_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-2.862" upper="2.862"/>
+    <limit effort="120" velocity="25" lower="-2.862" upper="2.862"/>
   </joint>
   <!-- Link waist_roll_link -->
   <link name="waist_roll_link">
@@ -584,7 +584,7 @@
     <parent link="left_elbow_link"/>
     <child link="left_wrist_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-3.14" upper="3.14"/>
+    <limit effort="30" velocity="12" lower="-3.14" upper="3.14"/>
   </joint>
   <!-- Joint from left_shoulder_yaw_link to left_elbow_link -->
   <joint name="left_elbow_joint" type="revolute">
@@ -592,7 +592,7 @@
     <parent link="left_shoulder_yaw_link"/>
     <child link="left_elbow_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-1" upper="3.14"/>
+    <limit effort="30" velocity="12" lower="-1" upper="3.14"/>
   </joint>
   <!-- Joint from left_shoulder_roll_link to left_shoulder_yaw_link -->
   <joint name="left_shoulder_yaw_joint" type="revolute">
@@ -600,7 +600,7 @@
     <parent link="left_shoulder_roll_link"/>
     <child link="left_shoulder_yaw_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-3.14" upper="3.14"/>
+    <limit effort="30" velocity="12" lower="-3.14" upper="3.14"/>
   </joint>
   <!-- Joint from left_shoulder_pitch_link to left_shoulder_roll_link -->
   <joint name="left_shoulder_roll_joint" type="revolute">
@@ -608,7 +608,7 @@
     <parent link="left_shoulder_pitch_link"/>
     <child link="left_shoulder_roll_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-0.1745" upper="3.14"/>
+    <limit effort="30" velocity="12" lower="-0.1745" upper="3.14"/>
   </joint>
   <!-- Joint from waist_yaw_link to left_shoulder_pitch_link -->
   <joint name="left_shoulder_pitch_joint" type="revolute">
@@ -616,7 +616,7 @@
     <parent link="waist_yaw_link"/>
     <child link="left_shoulder_pitch_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-3.14" upper="3.14"/>
+    <limit effort="30" velocity="12" lower="-3.14" upper="3.14"/>
   </joint>
   <!-- Link right_shoulder_pitch_link -->
   <link name="right_shoulder_pitch_link">
@@ -744,7 +744,7 @@
     <parent link="right_elbow_link"/>
     <child link="right_wrist_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-3.14" upper="3.14"/>
+    <limit effort="30" velocity="12" lower="-3.14" upper="3.14"/>
   </joint>
   <!-- Joint from right_shoulder_yaw_link to right_elbow_link -->
   <joint name="right_elbow_joint" type="revolute">
@@ -752,7 +752,7 @@
     <parent link="right_shoulder_yaw_link"/>
     <child link="right_elbow_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-3.14" upper="1"/>
+    <limit effort="30" velocity="12" lower="-3.14" upper="1"/>
   </joint>
   <!-- Joint from right_shoulder_roll_link to right_shoulder_yaw_link -->
   <joint name="right_shoulder_yaw_joint" type="revolute">
@@ -760,7 +760,7 @@
     <parent link="right_shoulder_roll_link"/>
     <child link="right_shoulder_yaw_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-3.14" upper="3.14"/>
+    <limit effort="30" velocity="12" lower="-3.14" upper="3.14"/>
   </joint>
   <!-- Joint from right_shoulder_pitch_link to right_shoulder_roll_link -->
   <joint name="right_shoulder_roll_joint" type="revolute">
@@ -768,7 +768,7 @@
     <parent link="right_shoulder_pitch_link"/>
     <child link="right_shoulder_roll_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-3.14" upper="0.1745"/>
+    <limit effort="30" velocity="12" lower="-3.14" upper="0.1745"/>
   </joint>
   <!-- Joint from waist_yaw_link to right_shoulder_pitch_link -->
   <joint name="right_shoulder_pitch_joint" type="revolute">
@@ -776,7 +776,7 @@
     <parent link="waist_yaw_link"/>
     <child link="right_shoulder_pitch_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-3.14" upper="3.14"/>
+    <limit effort="30" velocity="12" lower="-3.14" upper="3.14"/>
   </joint>
   <!-- Joint from waist_roll_link to waist_yaw_link -->
   <joint name="waist_yaw_joint" type="revolute">
@@ -784,7 +784,7 @@
     <parent link="waist_roll_link"/>
     <child link="waist_yaw_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-3.14" upper="3.14"/>
+    <limit effort="120" velocity="25" lower="-3.14" upper="3.14"/>
   </joint>
   <!-- Joint from base_link to waist_roll_link -->
   <joint name="waist_roll_joint" type="revolute">
@@ -792,6 +792,6 @@
     <parent link="base_link"/>
     <child link="waist_roll_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-0.7854" upper="0.7854"/>
+    <limit effort="120" velocity="25" lower="-0.7854" upper="0.7854"/>
   </joint>
 </robot>
