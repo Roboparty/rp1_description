@@ -14,7 +14,7 @@
         <geom type="mesh" contype="0" conaffinity="0" group="2"/>
       </default>
       <default class="collision">
-        <geom group="3"/>
+        <geom group="3" condim="3" solref="0.001 1"/>
       </default>
     </default>
   </default>
@@ -22,7 +22,7 @@
     <!-- Link base_link -->
     <body name="base_link" pos="0 0 0.75" quat="1 0 0 0" childclass="atom02">
       <site name='imu' size='0.01' pos='0.0 0 0.0'/>
-      <!-- <freejoint name="base_link_freejoint"/> -->
+      <freejoint name="base_link_freejoint"/>
       <inertial pos="0.0437437 0.0012641 -0.031713" mass="3.2691" fullinertia="0.0113358 0.00614169 0.0104925 1.6336e-06 -0.000393514 -8.82563e-07"/>
       <!-- Part base_link_parts -->
       <geom type="mesh" class="visual" pos="0.0437437 0.0012641 -0.031713" quat="1 0 0 0" mesh="base_link_visual" material="base_link_visual_material"/>
@@ -72,7 +72,19 @@
                   <inertial pos="-0.0245599 3.745e-07 0.017577" mass="0.582932" fullinertia="0.00160625 0.0016047 0.000310358 5.67752e-09 0.0001282 -7.57286e-09"/>
                   <!-- Part left_ankle_roll_link_parts -->
                   <geom type="mesh" class="visual" pos="-0.0245599 3.745e-07 0.017577" quat="1.56886e-08 -0.707107 -1.74272e-08 -0.707107" mesh="left_ankle_roll_link_visual" material="left_ankle_roll_link_visual_material"/>
-                  <geom type="mesh" class="collision" pos="-0.0245599 3.745e-07 0.017577" quat="1.56886e-08 -0.707107 -1.74272e-08 -0.707107" mesh="left_ankle_roll_link_collision" material="left_ankle_roll_link_collision_material"/>
+                  <!-- <geom type="mesh" class="collision" pos="-0.0245599 3.745e-07 0.017577" quat="1.56886e-08 -0.707107 -1.74272e-08 -0.707107" mesh="left_ankle_roll_link_collision" material="left_ankle_roll_link_collision_material"/> -->
+                  <geom type="sphere" size="0.005" pos="-0.05 0.0 -0.07" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 -0.025 -0.05" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.025 -0.05" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 -0.0285 -0.015" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.0285 -0.015" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 -0.0285 0.033" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.0285 0.033" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 -0.035 0.08" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.035 0.08" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 -0.025 0.135" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.025 0.135" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.0 0.145" class="collision"/>
                 </body>
               </body>
             </body>
@@ -124,7 +136,19 @@
                   <inertial pos="-0.0245906 3.59235e-07 0.0168605" mass="0.607702" fullinertia="0.00163088 0.00162721 0.00031331 5.67082e-09 0.000127886 -7.72927e-09"/>
                   <!-- Part right_ankle_roll_link_parts -->
                   <geom type="mesh" class="visual" pos="-0.0245906 3.59235e-07 0.0168605" quat="9.58571e-08 -0.707107 6.27412e-08 -0.707107" mesh="right_ankle_roll_link_visual" material="right_ankle_roll_link_visual_material"/>
-                  <geom type="mesh" class="collision" pos="-0.0245906 3.59235e-07 0.0168605" quat="9.58571e-08 -0.707107 6.27412e-08 -0.707107" mesh="right_ankle_roll_link_collision" material="right_ankle_roll_link_collision_material"/>
+                  <!-- <geom type="mesh" class="collision" pos="-0.0245906 3.59235e-07 0.0168605" quat="9.58571e-08 -0.707107 6.27412e-08 -0.707107" mesh="right_ankle_roll_link_collision" material="right_ankle_roll_link_collision_material"/> -->
+                  <geom type="sphere" size="0.005" pos="-0.05 0.0 -0.07" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 -0.025 -0.05" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.025 -0.05" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 -0.0285 -0.015" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.0285 -0.015" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 -0.0285 0.033" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.0285 0.033" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 -0.035 0.08" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.035 0.08" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 -0.025 0.135" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.025 0.135" class="collision"/>
+                  <geom type="sphere" size="0.005" pos="-0.05 0.0 0.145" class="collision"/>
                 </body>
               </body>
             </body>
