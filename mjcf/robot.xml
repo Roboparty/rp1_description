@@ -34,6 +34,7 @@
         <inertial pos="0.00945587 -0.000333614 0.0542215" mass="1.45119" fullinertia="0.00207074 0.00170158 0.00172076 1.55265e-05 -4.92515e-05 -8.46892e-07"/>
         <!-- Part left_hip_pitch_link_parts -->
         <geom type="mesh" class="visual" pos="0.00945587 -0.000333614 0.0542215" quat="0.707107 0.707107 1.22125e-15 1.95126e-15" mesh="left_hip_pitch_link_visual" material="left_hip_pitch_link_visual_material"/>
+        <geom type="mesh" class="collision" pos="0.00945587 -0.000333614 0.0542215" quat="0.707107 0.707107 1.22125e-15 1.95126e-15" mesh="left_hip_pitch_link_collision" material="left_hip_pitch_link_collision_material"/>
         <!-- Link left_hip_roll_link -->
         <body name="left_hip_roll_link" pos="0.0327788 4.92661e-16 0.057104" quat="0.5 -0.5 0.5 -0.5">
           <!-- Joint from left_hip_pitch_link to left_hip_roll_link -->
@@ -98,6 +99,7 @@
         <inertial pos="0.00945587 0.0003812 0.054201" mass="1.45119" fullinertia="0.00207052 0.00170141 0.00172071 -1.04117e-05 -5.05187e-05 -5.39298e-07"/>
         <!-- Part right_hip_pitch_link_parts -->
         <geom type="mesh" class="visual" pos="0.00945587 0.0003812 0.054201" quat="0.707107 -0.707107 -7.77156e-16 1.31644e-15" mesh="right_hip_pitch_link_visual" material="right_hip_pitch_link_visual_material"/>
+        <geom type="mesh" class="collision" pos="0.00945587 0.0003812 0.054201" quat="0.707107 -0.707107 -7.77156e-16 1.31644e-15" mesh="right_hip_pitch_link_collision" material="right_hip_pitch_link_collision_material"/>
         <!-- Link right_hip_roll_link -->
         <body name="right_hip_roll_link" pos="0.0327788 4.54498e-15 0.057104" quat="0.5 0.5 0.5 0.5">
           <!-- Joint from right_hip_pitch_link to right_hip_roll_link -->
@@ -162,6 +164,7 @@
         <inertial pos="0.00548826 -4.22533e-05 -0.0251178" mass="1.48989" fullinertia="0.00184797 0.00196597 0.00208297 8.27678e-06 1.07947e-05 4.14214e-06"/>
         <!-- Part waist_roll_link_parts -->
         <geom type="mesh" class="visual" pos="0.00548826 -4.22533e-05 -0.0251178" quat="6.74431e-15 -0.707107 -6.43929e-15 -0.707107" mesh="waist_roll_link_visual" material="waist_roll_link_visual_material"/>
+        <geom type="mesh" class="collision" pos="0.00548826 -4.22533e-05 -0.0251178" quat="6.74431e-15 -0.707107 -6.43929e-15 -0.707107" mesh="waist_roll_link_collision" material="waist_roll_link_collision_material"/>
         <!-- Link waist_yaw_link -->
         <body name="waist_yaw_link" pos="0.0555 3.49805e-10 -0.0309136" quat="0.707107 4.62419e-14 -0.707107 4.59077e-14">
           <!-- Joint from waist_roll_link to waist_yaw_link -->
@@ -285,6 +288,7 @@
     <mesh file="meshes/right_hip_yaw_link_visual.stl"/>
     <mesh file="meshes/right_ankle_pitch_link_visual.stl"/>
     <mesh file="meshes/left_hip_yaw_link_collision.stl"/>
+    <mesh file="meshes/waist_roll_link_collision.stl"/>
     <mesh file="meshes/right_knee_link_visual.stl"/>
     <mesh file="meshes/right_shoulder_roll_link_visual.stl"/>
     <mesh file="meshes/right_elbow_link_collision.stl"/>
@@ -297,6 +301,7 @@
     <mesh file="meshes/right_hip_yaw_link_collision.stl"/>
     <mesh file="meshes/waist_roll_link_visual.stl"/>
     <mesh file="meshes/waist_yaw_link_collision.stl"/>
+    <mesh file="meshes/left_hip_pitch_link_collision.stl"/>
     <mesh file="meshes/base_link_visual.stl"/>
     <mesh file="meshes/right_hip_roll_link_visual.stl"/>
     <mesh file="meshes/right_elbow_link_visual.stl"/>
@@ -304,6 +309,7 @@
     <mesh file="meshes/left_hip_roll_link_collision.stl"/>
     <mesh file="meshes/left_shoulder_roll_link_visual.stl"/>
     <mesh file="meshes/right_ankle_roll_link_collision.stl"/>
+    <mesh file="meshes/right_hip_pitch_link_collision.stl"/>
     <mesh file="meshes/left_elbow_link_visual.stl"/>
     <mesh file="meshes/left_shoulder_yaw_link_collision.stl"/>
     <mesh file="meshes/right_shoulder_pitch_link_collision.stl"/>
@@ -313,6 +319,7 @@
     <material name="base_link_visual_material" rgba="0.949125 0.756712 0.239491 1"/>
     <material name="base_link_collision_material" rgba="0.949125 0.756712 0.239491 1"/>
     <material name="left_hip_pitch_link_visual_material" rgba="0.958453 0.73556 0.14076 1"/>
+    <material name="left_hip_pitch_link_collision_material" rgba="0.958453 0.73556 0.14076 1"/>
     <material name="left_hip_roll_link_visual_material" rgba="0.935031 0.77678 0.348633 1"/>
     <material name="left_hip_roll_link_collision_material" rgba="0.935031 0.77678 0.348633 1"/>
     <material name="left_hip_yaw_link_visual_material" rgba="0.668491 0.686384 0.726374 1"/>
@@ -323,6 +330,7 @@
     <material name="left_ankle_roll_link_visual_material" rgba="0.79188 0.799626 0.824162 1"/>
     <material name="left_ankle_roll_link_collision_material" rgba="0.79188 0.799626 0.824162 1"/>
     <material name="right_hip_pitch_link_visual_material" rgba="0.958453 0.73556 0.14076 1"/>
+    <material name="right_hip_pitch_link_collision_material" rgba="0.958453 0.73556 0.14076 1"/>
     <material name="right_hip_roll_link_visual_material" rgba="0.934998 0.776843 0.348943 1"/>
     <material name="right_hip_roll_link_collision_material" rgba="0.934998 0.776843 0.348943 1"/>
     <material name="right_hip_yaw_link_visual_material" rgba="0.668491 0.686383 0.726374 1"/>
@@ -333,6 +341,7 @@
     <material name="right_ankle_roll_link_visual_material" rgba="0.785977 0.792288 0.814546 1"/>
     <material name="right_ankle_roll_link_collision_material" rgba="0.785977 0.792288 0.814546 1"/>
     <material name="waist_roll_link_visual_material" rgba="0.949979 0.736365 0.164008 1"/>
+    <material name="waist_roll_link_collision_material" rgba="0.949979 0.736365 0.164008 1"/>
     <material name="waist_yaw_link_visual_material" rgba="0.852929 0.827888 0.716558 1"/>
     <material name="waist_yaw_link_collision_material" rgba="0.852929 0.827888 0.716558 1"/>
     <material name="left_shoulder_pitch_link_visual_material" rgba="0.725141 0.843319 0.937063 1"/>

@@ -43,6 +43,12 @@
         <color rgba="0.958453 0.73556 0.14076 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0.00945587 -0.000333614 0.0542215" rpy="1.5708 -2.24154e-15 3.15315e-15"/>
+      <geometry>
+        <mesh filename="package://assets/merged/left_hip_pitch_link_collision.stl"/>
+      </geometry>
+    </collision>
   </link>
   <!-- Link left_hip_roll_link -->
   <link name="left_hip_roll_link">
@@ -295,6 +301,12 @@
         <color rgba="0.958453 0.73556 0.14076 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0.00945587 0.0003812 0.054201" rpy="-1.5708 7.25858e-16 2.9976e-15"/>
+      <geometry>
+        <mesh filename="../meshes/right_hip_pitch_link_collision.stl"/>
+      </geometry>
+    </collision>
   </link>
   <!-- Link right_hip_roll_link -->
   <link name="right_hip_roll_link">
@@ -547,6 +559,12 @@
         <color rgba="0.949979 0.736365 0.164008 1"/>
       </material>
     </visual>
+    <collision>
+      <origin xyz="0.00548826 -4.22533e-05 -0.0251178" rpy="-3.14159 -1.5708 0"/>
+      <geometry>
+        <mesh filename="../meshes/waist_roll_link_collision.stl"/>
+      </geometry>
+    </collision>
   </link>
   <!-- Link waist_yaw_link -->
   <link name="waist_yaw_link">
