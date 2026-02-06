@@ -46,7 +46,7 @@
     <collision>
       <origin xyz="0.00945587 -0.000333614 0.0542215" rpy="1.5708 -2.24154e-15 3.15315e-15"/>
       <geometry>
-        <mesh filename="package://assets/merged/left_hip_pitch_link_collision.stl"/>
+        <mesh filename="../meshes/left_hip_pitch_link_collision.stl"/>
       </geometry>
     </collision>
   </link>
