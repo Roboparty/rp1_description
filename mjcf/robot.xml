@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mujoco model="rp1.3.1">
-  <compiler angle="radian" meshdir="../" autolimits="true" eulerseq="zyx"/>
+  <compiler angle="radian" meshdir="../" autolimits="true" eulerseq="zyx" balanceinertia="true"/>
   <option timestep="0.001" iterations="50" solver="PGS" gravity="0 0 -9.81">
     <flag frictionloss="enable"/>
   </option>
   <size njmax="2000" nconmax="500"/>
   <default>
-    <default class="RP1.1">
+    <default class="RP1.3.1">
       <joint damping="0.0" frictionloss="0.0" armature="0.01"/>
       <default class="visual">
         <geom type="mesh" contype="0" conaffinity="0" group="2"/>
@@ -17,7 +17,7 @@
     </default>
   </default>
   <worldbody>
-    <body name="base_link" pos="0 0 0.78" quat="1 0 0 0" childclass="RP1.1">
+    <body name="base_link" pos="0 0 0.78" quat="1 0 0 0" childclass="RP1.3.1">
       <site name="imu" size="0.01" pos="0.0 0 0.0"/>
       <freejoint name="base_link_freejoint"/>
       <inertial pos="-0.037792 -0.003010 -0.044152" mass="3.552093" fullinertia="0.010331 0.008186 0.009223 2.7e-06 0.000260 6.2e-06"/>
@@ -270,34 +270,34 @@
     <material name="right_wrist_yaw_material" rgba="0.752941 0.752941 0.752941 1"/>
   </asset>
   <actuator>
-    <motor class="RP1.1" name="right_hip_pitch_joint" joint="right_hip_pitch_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-140 140"/>
-    <motor class="RP1.1" name="right_hip_roll_joint" joint="right_hip_roll_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-140 140"/>
-    <motor class="RP1.1" name="right_hip_yaw_joint" joint="right_hip_yaw_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-140 140"/>
-    <motor class="RP1.1" name="right_knee_joint" joint="right_knee_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-140 140"/>
-    <motor class="RP1.1" name="right_ankle_pitch_joint" joint="right_ankle_pitch_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-28.5 28.5"/>
-    <motor class="RP1.1" name="right_ankle_roll_joint" joint="right_ankle_roll_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-28.5 28.5"/>
-    <motor class="RP1.1" name="left_hip_pitch_joint" joint="left_hip_pitch_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-140 140"/>
-    <motor class="RP1.1" name="left_hip_roll_joint" joint="left_hip_roll_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-140 140"/>
-    <motor class="RP1.1" name="left_hip_yaw_joint" joint="left_hip_yaw_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-140 140"/>
-    <motor class="RP1.1" name="left_knee_joint" joint="left_knee_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-140 140"/>
-    <motor class="RP1.1" name="left_ankle_pitch_joint" joint="left_ankle_pitch_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-28.5 28.5"/>
-    <motor class="RP1.1" name="left_ankle_roll_joint" joint="left_ankle_roll_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-28.5 28.5"/>
-    <motor class="RP1.1" name="waist_roll_joint" joint="waist_roll_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-140 140"/>
-    <motor class="RP1.1" name="waist_yaw_joint" joint="waist_yaw_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-140 140"/>
-    <motor class="RP1.1" name="left_shoulder_pitch_joint" joint="left_shoulder_pitch_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="left_shoulder_roll_joint" joint="left_shoulder_roll_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="left_shoulder_yaw_joint" joint="left_shoulder_yaw_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="left_elbow_joint" joint="left_elbow_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="left_wrist_roll_joint" joint="left_wrist_roll_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="left_wrist_pitch_joint" joint="left_wrist_pitch_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="left_wrist_yaw_joint" joint="left_wrist_yaw_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="right_shoulder_pitch_joint" joint="right_shoulder_pitch_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="right_shoulder_roll_joint" joint="right_shoulder_roll_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="right_shoulder_yaw_joint" joint="right_shoulder_yaw_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="right_elbow_joint" joint="right_elbow_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="right_wrist_roll_joint" joint="right_wrist_roll_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="right_wrist_pitch_joint" joint="right_wrist_pitch_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
-    <motor class="RP1.1" name="right_wrist_yaw_joint" joint="right_wrist_yaw_joint" gear="1" ctrllimited="true" ctrlrange="-200 200" forcerange="-20 20"/>
+    <position class="RP1.3.1" kp="220.106" kv="13.137" forcerange="-140 140" name="right_hip_pitch_joint" joint="right_hip_pitch_joint"/>
+    <position class="RP1.3.1" kp="220.106" kv="13.137" forcerange="-140 140" name="right_hip_roll_joint" joint="right_hip_roll_joint"/>
+    <position class="RP1.3.1" kp="220.106" kv="13.137" forcerange="-140 140" name="right_hip_yaw_joint" joint="right_hip_yaw_joint"/>
+    <position class="RP1.3.1" kp="220.106" kv="13.137" forcerange="-140 140" name="right_knee_joint" joint="right_knee_joint"/>
+    <position class="RP1.3.1" kp="51.447" kv="3.071" forcerange="-28.5 28.5" name="right_ankle_pitch_joint" joint="right_ankle_pitch_joint"/>
+    <position class="RP1.3.1" kp="51.447" kv="3.071" forcerange="-28.5 28.5" name="right_ankle_roll_joint" joint="right_ankle_roll_joint"/>
+    <position class="RP1.3.1" kp="220.106" kv="13.137" forcerange="-140 140" name="left_hip_pitch_joint" joint="left_hip_pitch_joint"/>
+    <position class="RP1.3.1" kp="220.106" kv="13.137" forcerange="-140 140" name="left_hip_roll_joint" joint="left_hip_roll_joint"/>
+    <position class="RP1.3.1" kp="220.106" kv="13.137" forcerange="-140 140" name="left_hip_yaw_joint" joint="left_hip_yaw_joint"/>
+    <position class="RP1.3.1" kp="220.106" kv="13.137" forcerange="-140 140" name="left_knee_joint" joint="left_knee_joint"/>
+    <position class="RP1.3.1" kp="51.447" kv="3.071" forcerange="-28.5 28.5" name="left_ankle_pitch_joint" joint="left_ankle_pitch_joint"/>
+    <position class="RP1.3.1" kp="51.447" kv="3.071" forcerange="-28.5 28.5" name="left_ankle_roll_joint" joint="left_ankle_roll_joint"/>
+    <position class="RP1.3.1" kp="220.106" kv="13.137" forcerange="-140 140" name="waist_roll_joint" joint="waist_roll_joint"/>
+    <position class="RP1.3.1" kp="220.106" kv="13.137" forcerange="-140 140" name="waist_yaw_joint" joint="waist_yaw_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="left_shoulder_pitch_joint" joint="left_shoulder_pitch_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="left_shoulder_roll_joint" joint="left_shoulder_roll_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="left_shoulder_yaw_joint" joint="left_shoulder_yaw_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="left_elbow_joint" joint="left_elbow_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="left_wrist_roll_joint" joint="left_wrist_roll_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="left_wrist_pitch_joint" joint="left_wrist_pitch_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="left_wrist_yaw_joint" joint="left_wrist_yaw_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="right_shoulder_pitch_joint" joint="right_shoulder_pitch_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="right_shoulder_roll_joint" joint="right_shoulder_roll_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="right_shoulder_yaw_joint" joint="right_shoulder_yaw_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="right_elbow_joint" joint="right_elbow_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="right_wrist_roll_joint" joint="right_wrist_roll_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="right_wrist_pitch_joint" joint="right_wrist_pitch_joint"/>
+    <position class="RP1.3.1" kp="22.562" kv="1.347" forcerange="-20 20" name="right_wrist_yaw_joint" joint="right_wrist_yaw_joint"/>
   </actuator>
   <sensor>
     <framequat name="orientation" objtype="site" noise="0.001" objname="imu"/>
