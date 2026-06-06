@@ -661,7 +661,7 @@
     <child link="left_wrist_roll_link"/>
     <axis xyz="1 0 0"/>
     <limit lower="-2.56" upper="2.56" effort="28.5" velocity="20"/>
-    <dynamics damping="0.0" friction="0.0" armature="0.0086184"/>
+    <dynamics damping="0.0" friction="0.0" armature="0.020362"/>
   </joint>
   <link name="left_wrist_yaw_link">
     <inertial>
@@ -872,7 +872,7 @@
     <child link="right_wrist_roll_link"/>
     <axis xyz="1 0 0"/>
     <limit lower="-2.56" upper="2.56" effort="28.5" velocity="20"/>
-    <dynamics damping="0.0" friction="0.0" armature="0.0086184"/>
+    <dynamics damping="0.0" friction="0.0" armature="0.020362"/>
   </joint>
   <link name="right_wrist_yaw_link">
     <inertial>
