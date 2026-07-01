@@ -13,6 +13,6 @@
   </asset>
   <worldbody>
     <light pos="0 0 3.5" dir="0 0 -1" directional="true"/>
-    <geom name="floor" size="0 0 0.05" pos="0 0 0" type="plane" material="groundplane" condim="3" friction="0.9 0.2 0.2" solref="0.001 1"/>
+    <geom name="floor" size="0 0 0.05" pos="0 0 0" type="plane" material="groundplane" condim="4" contype="1" conaffinity="15" friction="0.9 0.2 0.2" solref="0.001 2"/>
   </worldbody>
 </mujoco>
