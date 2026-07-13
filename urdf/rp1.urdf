@@ -484,9 +484,9 @@
   </joint>
   <link name="waist_yaw_link">
     <inertial>
-      <origin xyz="-0.00370503 -0.00039244 0.11992774" rpy="0 0 0"/>
-      <mass value="7.53658565"/>
-      <inertia ixx="0.06635139" ixy="-0.00002079" ixz="0.00230393" iyy="0.04516476" iyz="0.00015624" izz="0.04108290"/>
+      <origin xyz="-0.00358123 -0.00036960 0.13329355" rpy="0 0 0"/>
+      <mass value="8.05985424"/>
+      <inertia ixx="0.09062116" ixy="-0.00002120" ixz="0.00207948" iyy="0.06917216" iyz="0.00012163" izz="0.04303498"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
