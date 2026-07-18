@@ -52,13 +52,13 @@
                   <joint axis="0.999993677858222 0 0.00355587451777954" name="left_ankle_roll_joint" type="hinge" range="-0.26 0.26" armature="0.01" frictionloss="0.05"/>
                   <inertial pos="0.00068014 0.00014147 -0.02274493" mass="0.71237841" fullinertia="0.00040459 0.00254775 0.00264556 -0.00000088 0.00008709 0.00000093"/>
                   <geom type="mesh" class="visual" pos="0 0 0" quat="1 0 0 0" mesh="left_ankle_roll_link" material="left_ankle_roll_material"/>
-                  <geom name="left_foot_toe_neg_collision" type="capsule" class="collision" size="0.005" fromto="0.005 -0.032 -0.04 0.105 -0.032 -0.04"/>
-                  <geom name="left_foot_outer_neg_collision" type="capsule" class="collision" size="0.005" fromto="-0.0985 -0.022 -0.04 0.1135 -0.022 -0.04"/>
-                  <geom name="left_foot_inner_neg_collision" type="capsule" class="collision" size="0.005" fromto="-0.106 -0.012 -0.04 0.122 -0.012 -0.04"/>
-                  <geom name="left_foot_center_collision" type="capsule" class="collision" size="0.005" fromto="-0.115 0 -0.04 0.132 0 -0.04"/>
-                  <geom name="left_foot_inner_pos_collision" type="capsule" class="collision" size="0.005" fromto="-0.106 0.012 -0.04 0.122 0.012 -0.04"/>
-                  <geom name="left_foot_outer_pos_collision" type="capsule" class="collision" size="0.005" fromto="-0.0985 0.022 -0.04 0.1135 0.022 -0.04"/>
-                  <geom name="left_foot_toe_pos_collision" type="capsule" class="collision" size="0.005" fromto="0.005 0.032 -0.04 0.105 0.032 -0.04"/>
+                  <geom name="left_foot_toe_neg_collision" type="capsule" class="collision" size="0.01" fromto="0.03 -0.03 -0.035 0.09 -0.03 -0.035"/>
+                  <geom name="left_foot_outer_neg_collision" type="capsule" class="collision" size="0.01" fromto="-0.09 -0.02 -0.035 0.11 -0.02 -0.035"/>
+                  <geom name="left_foot_inner_neg_collision" type="capsule" class="collision" size="0.01" fromto="-0.1025 -0.01 -0.035 0.1225 -0.01 -0.035"/>
+                  <geom name="left_foot_center_collision" type="capsule" class="collision" size="0.01" fromto="-0.1075 0 -0.035 0.1275 0 -0.035"/>
+                  <geom name="left_foot_inner_pos_collision" type="capsule" class="collision" size="0.01" fromto="-0.1025 0.01 -0.035 0.1225 0.01 -0.035"/>
+                  <geom name="left_foot_outer_pos_collision" type="capsule" class="collision" size="0.01" fromto="-0.09 0.02 -0.035 0.11 0.02 -0.035"/>
+                  <geom name="left_foot_toe_pos_collision" type="capsule" class="collision" size="0.01" fromto="0.03 0.03 -0.035 0.09 0.03 -0.035"/>
                 </body>
               </body>
             </body>
@@ -95,13 +95,13 @@
                   <joint axis="0.999993677858222 0 0.00355587451777984" name="right_ankle_roll_joint" type="hinge" range="-0.26 0.26" armature="0.01" frictionloss="0.05"/>
                   <inertial pos="0.00068009 0.00000298 -0.02274494" mass="0.71237841" fullinertia="0.00040459 0.00254775 0.00264555 -0.00000032 0.00008710 0.00000009"/>
                   <geom type="mesh" class="visual" pos="0 0 0" quat="1 0 0 0" mesh="right_ankle_roll_link" material="right_ankle_roll_material"/>
-                  <geom name="right_foot_toe_neg_collision" type="capsule" class="collision" size="0.005" fromto="0.005 -0.032 -0.04 0.105 -0.032 -0.04"/>
-                  <geom name="right_foot_outer_neg_collision" type="capsule" class="collision" size="0.005" fromto="-0.0985 -0.022 -0.04 0.1135 -0.022 -0.04"/>
-                  <geom name="right_foot_inner_neg_collision" type="capsule" class="collision" size="0.005" fromto="-0.106 -0.012 -0.04 0.122 -0.012 -0.04"/>
-                  <geom name="right_foot_center_collision" type="capsule" class="collision" size="0.005" fromto="-0.115 0 -0.04 0.132 0 -0.04"/>
-                  <geom name="right_foot_inner_pos_collision" type="capsule" class="collision" size="0.005" fromto="-0.106 0.012 -0.04 0.122 0.012 -0.04"/>
-                  <geom name="right_foot_outer_pos_collision" type="capsule" class="collision" size="0.005" fromto="-0.0985 0.022 -0.04 0.1135 0.022 -0.04"/>
-                  <geom name="right_foot_toe_pos_collision" type="capsule" class="collision" size="0.005" fromto="0.005 0.032 -0.04 0.105 0.032 -0.04"/>
+                  <geom name="right_foot_toe_neg_collision" type="capsule" class="collision" size="0.01" fromto="0.03 -0.03 -0.035 0.09 -0.03 -0.035"/>
+                  <geom name="right_foot_outer_neg_collision" type="capsule" class="collision" size="0.01" fromto="-0.09 -0.02 -0.035 0.11 -0.02 -0.035"/>
+                  <geom name="right_foot_inner_neg_collision" type="capsule" class="collision" size="0.01" fromto="-0.1025 -0.01 -0.035 0.1225 -0.01 -0.035"/>
+                  <geom name="right_foot_center_collision" type="capsule" class="collision" size="0.01" fromto="-0.1075 0 -0.035 0.1275 0 -0.035"/>
+                  <geom name="right_foot_inner_pos_collision" type="capsule" class="collision" size="0.01" fromto="-0.1025 0.01 -0.035 0.1225 0.01 -0.035"/>
+                  <geom name="right_foot_outer_pos_collision" type="capsule" class="collision" size="0.01" fromto="-0.09 0.02 -0.035 0.11 0.02 -0.035"/>
+                  <geom name="right_foot_toe_pos_collision" type="capsule" class="collision" size="0.01" fromto="0.03 0.03 -0.035 0.09 0.03 -0.035"/>
                 </body>
               </body>
             </body>

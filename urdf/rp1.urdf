@@ -184,45 +184,45 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0.0085 0 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.01 0 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.247"/>
+        <cylinder radius="0.01" length="0.235"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.008 0.012 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.01 0.01 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.228"/>
+        <cylinder radius="0.01" length="0.225"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.008 -0.012 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.01 -0.01 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.228"/>
+        <cylinder radius="0.01" length="0.225"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.0075 0.022 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.01 0.02 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.212"/>
+        <cylinder radius="0.01" length="0.200"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.0075 -0.022 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.01 -0.02 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.212"/>
+        <cylinder radius="0.01" length="0.200"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.055 0.032 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.06 0.03 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.100"/>
+        <cylinder radius="0.01" length="0.06"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.055 -0.032 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.06 -0.03 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.100"/>
+        <cylinder radius="0.01" length="0.06"/>
       </geometry>
     </collision>
   </link>
@@ -401,45 +401,45 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0.0085 0 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.01 0 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.247"/>
+        <cylinder radius="0.01" length="0.235"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.008 0.012 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.01 0.01 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.228"/>
+        <cylinder radius="0.01" length="0.225"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.008 -0.012 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.01 -0.01 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.228"/>
+        <cylinder radius="0.01" length="0.225"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.0075 0.022 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.01 0.02 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.212"/>
+        <cylinder radius="0.01" length="0.200"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.0075 -0.022 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.01 -0.02 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.212"/>
+        <cylinder radius="0.01" length="0.200"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.055 0.032 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.06 0.03 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.100"/>
+        <cylinder radius="0.01" length="0.06"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.055 -0.032 -0.04" rpy="0 1.5708 0"/>
+      <origin xyz="0.06 -0.03 -0.035" rpy="0 1.5708 0"/>
       <geometry>
-        <cylinder radius="0.005" length="0.100"/>
+        <cylinder radius="0.01" length="0.06"/>
       </geometry>
     </collision>
   </link>
