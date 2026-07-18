@@ -633,16 +633,16 @@
     <limit lower="-1.6" upper="1.24" effort="35.3" velocity="21.88648"/>
     <dynamics damping="0.01" friction="0.01" armature="0.01"/>
   </joint>
-  <link name="left_wrist_roll_link">
+  <link name="left_wrist_link">
     <inertial>
-      <origin xyz="0.01827024 0.00000000 0.01027564" rpy="0 0 0"/>
-      <mass value="0.16115938"/>
-      <inertia ixx="0.00013435" ixy="0.00000000" ixz="-0.00003765" iyy="0.00015892" iyz="0.00000000" izz="0.00014383"/>
+      <origin xyz="0.10279104 -0.00368067 0.00149822" rpy="0 0 0"/>
+      <mass value="0.46025356"/>
+      <inertia ixx="0.00032495" ixy="0.00013222" ixz="-0.00009324" iyy="0.00202426" iyz="0.00001796" izz="0.00199776"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="../meshes/left_wrist_roll_link.STL"/>
+        <mesh filename="../meshes/left_wrist_link.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
@@ -651,14 +651,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="../meshes/left_wrist_roll_link.STL"/>
+        <mesh filename="../meshes/left_wrist_link.STL"/>
       </geometry>
     </collision>
   </link>
-  <joint name="left_wrist_roll_joint" type="revolute">
+  <joint name="left_wrist_joint" type="revolute">
     <origin xyz="0.116093381994033 0.031859446289993 -0.0187927584979322" rpy="0 0 0"/>
     <parent link="left_elbow_link"/>
-    <child link="left_wrist_roll_link"/>
+    <child link="left_wrist_link"/>
     <axis xyz="1 0 0"/>
     <limit lower="-2.56" upper="2.56" effort="35.3" velocity="21.88648"/>
     <dynamics damping="0.01" friction="0.01" armature="0.01"/>
@@ -784,16 +784,16 @@
     <limit lower="-1.24" upper="1.6" effort="35.3" velocity="21.88648"/>
     <dynamics damping="0.01" friction="0.01" armature="0.01"/>
   </joint>
-  <link name="right_wrist_roll_link">
+  <link name="right_wrist_link">
     <inertial>
-      <origin xyz="0.01827024 0.00000000 0.01027555" rpy="0 0 0"/>
-      <mass value="0.16115938"/>
-      <inertia ixx="0.00013435" ixy="0.00000000" ixz="-0.00003765" iyy="0.00015892" iyz="0.00000000" izz="0.00014383"/>
+      <origin xyz="0.10279542 0.00367933 0.00149885" rpy="0 0 0"/>
+      <mass value="0.46029783"/>
+      <inertia ixx="0.00032496" ixy="-0.00013231" ixz="-0.00009325" iyy="0.00202412" iyz="-0.00001798" izz="0.00199758"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="../meshes/right_wrist_roll_link.STL"/>
+        <mesh filename="../meshes/right_wrist_link.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
@@ -802,14 +802,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="../meshes/right_wrist_roll_link.STL"/>
+        <mesh filename="../meshes/right_wrist_link.STL"/>
       </geometry>
     </collision>
   </link>
-  <joint name="right_wrist_roll_joint" type="revolute">
+  <joint name="right_wrist_joint" type="revolute">
     <origin xyz="0.11609334409225 -0.031859369715491 -0.0187927299688337" rpy="0 0 0"/>
     <parent link="right_elbow_link"/>
-    <child link="right_wrist_roll_link"/>
+    <child link="right_wrist_link"/>
     <axis xyz="1 0 0"/>
     <limit lower="-2.56" upper="2.56" effort="35.3" velocity="21.88648"/>
     <dynamics damping="0.01" friction="0.01" armature="0.01"/>
