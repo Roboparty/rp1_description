@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mujoco model="rp1.3.2">
   <compiler angle="radian" meshdir="../" autolimits="true" eulerseq="zyx" balanceinertia="true"/>
-  <option timestep="0.001" iterations="100" solver="PGS" gravity="0 0 -9.81">
+  <option timestep="0.005" integrator="implicitfast" iterations="100" solver="Newton" gravity="0 0 -9.81">
     <flag frictionloss="enable"/>
   </option>
-  <size njmax="5000" nconmax="1000"/>
+  <size memory="32M"/>
   <default>
     <default class="RP1.3.2">
       <joint damping="0.01" frictionloss="0.01" armature="0.01"/>
@@ -12,7 +12,7 @@
         <geom type="mesh" contype="0" conaffinity="0" group="2"/>
       </default>
       <default class="collision">
-        <geom group="3" condim="4" contype="1" conaffinity="0" solref="0.001 2" friction="0.9 0.2 0.2"/>
+        <geom group="3" condim="4" contype="1" conaffinity="1" solref="0.01 1" friction="0.9 0.2 0.2"/>
       </default>
     </default>
   </default>
