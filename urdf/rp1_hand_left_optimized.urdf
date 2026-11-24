@@ -1,0 +1,3377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="rp1">
+  <!-- ===== BASE LINK ===== -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.03786057 -0.00301243 -0.04479345" rpy="0 0 0"/>
+      <mass value="3.295"/>
+      <inertia ixx="0.00960796" ixy="0.00000112" ixz="-0.00015116" iyy="0.00699457" iyz="-0.00000270" izz="0.00815508"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/base_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/base_link_hip_flange_blue.STL"/>
+      </geometry>
+      <material name="RP1_BLUE">
+        <color rgba="0.0784 0.3137 0.9216 1"/>
+      </material>
+    </visual>
+  </link>
+  <!-- ===== LEFT LEG ===== -->
+  <link name="left_hip_pitch_link">
+    <inertial>
+      <origin xyz="-0.00326988 0.05886633 -0.05765170" rpy="0 0 0"/>
+      <mass value="1.83930168"/>
+      <inertia ixx="0.00338343" ixy="0.00000610" ixz="-0.00000685" iyy="0.00286182" iyz="0.00030016" izz="0.00254132"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_hip_pitch_link.STL"/>
+      </geometry>
+      <material name="RP1_BLUE">
+        <color rgba="0.0784 0.3137 0.9216 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_hip_pitch_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_hip_pitch_joint" type="revolute">
+    <origin xyz="-0.03843 0.062987 -0.051639" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="left_hip_pitch_link"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.86" upper="2.86" effort="140" velocity="13.61356817"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.0290856"/>
+  </joint>
+  <link name="left_hip_roll_link">
+    <inertial>
+      <origin xyz="-0.00518991 -0.00003499 -0.08084106" rpy="0 0 0"/>
+      <mass value="1.473"/>
+      <inertia ixx="0.00376408" ixy="0.00000313" ixz="-0.00065554" iyy="0.00382823" iyz="-0.00000256" izz="0.00192275"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_hip_roll_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_hip_roll_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_hip_roll_joint" type="revolute">
+    <origin xyz="0.031915 0.061254 -0.060672" rpy="0 0 0"/>
+    <parent link="left_hip_pitch_link"/>
+    <child link="left_hip_roll_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.74" upper="2.6" effort="140" velocity="13.61356817"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.0290856"/>
+  </joint>
+  <link name="left_hip_yaw_link">
+    <inertial>
+      <origin xyz="-0.01959270 -0.00023200 -0.12376414" rpy="0 0 0"/>
+      <mass value="2.483"/>
+      <inertia ixx="0.01126838" ixy="0.00001684" ixz="-0.00196020" iyy="0.01225761" iyz="0.00002442" izz="0.00388513"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_hip_yaw_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_hip_yaw_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_hip_yaw_joint" type="revolute">
+    <origin xyz="-0.012698 0 -0.129" rpy="0 0 0"/>
+    <parent link="left_hip_roll_link"/>
+    <child link="left_hip_yaw_link"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-2.76" upper="2.76" effort="55" velocity="16.23156204"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00884"/>
+  </joint>
+  <link name="left_knee_link">
+    <inertial>
+      <origin xyz="0.03105182 0.03046366 -0.13362250" rpy="0 0 0"/>
+      <mass value="2.557"/>
+      <inertia ixx="0.01819333" ixy="-0.00006969" ixz="-0.00019845" iyy="0.01828843" iyz="0.00002464" izz="0.00291276"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_knee_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_knee_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_knee_joint" type="revolute">
+    <origin xyz="-0.033201 -0.030809 -0.16509" rpy="0 0 0"/>
+    <parent link="left_hip_yaw_link"/>
+    <child link="left_knee_link"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="-2.83" upper="0.06" effort="140" velocity="13.61356817"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.0290856"/>
+  </joint>
+  <link name="left_ankle_pitch_link">
+    <inertial>
+      <origin xyz="0.00126332 0.00000000 -0.01319163" rpy="0 0 0"/>
+      <mass value="0.16605731"/>
+      <inertia ixx="0.00003624" ixy="0.00000000" ixz="0.00000148" iyy="0.00004292" iyz="0.00000000" izz="0.00002407"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_ankle_pitch_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_ankle_pitch_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_ankle_pitch_joint" type="revolute">
+    <origin xyz="0.03131 0.030811 -0.30533" rpy="0 0 0"/>
+    <parent link="left_knee_link"/>
+    <child link="left_ankle_pitch_link"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.78" upper="0.61" effort="64" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.006266268"/>
+  </joint>
+  <link name="left_ankle_roll_link">
+    <inertial>
+      <origin xyz="0.008711 -0.000002 -0.021633" rpy="0 0 0"/>
+      <mass value="0.6430"/>
+      <inertia ixx="0.000361" ixy="0.000000" ixz="0.000123" iyy="0.001920" iyz="0.000000" izz="0.002002"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_ankle_roll_link_visual_white.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_ankle_roll_detail_blue.STL"/>
+      </geometry>
+      <material name="RP1_BLUE">
+        <color rgba="0.0784 0.3137 0.9216 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0225 0 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.210"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0225 0.01 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.200"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0225 -0.01 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.200"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0225 0.02 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.175"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0225 -0.02 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.175"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.06 0.03 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.06"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.06 -0.03 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.06"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_ankle_roll_joint" type="revolute">
+    <origin xyz="0.013067 0 -0.018922" rpy="0 0 0"/>
+    <parent link="left_ankle_pitch_link"/>
+    <child link="left_ankle_roll_link"/>
+    <axis xyz="0.999993677858222 0 0.00355587451777954"/>
+    <limit lower="-0.26" upper="0.26" effort="64" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.006266268"/>
+  </joint>
+  <!-- ===== RIGHT LEG ===== -->
+  <link name="right_hip_pitch_link">
+    <inertial>
+      <origin xyz="-0.00326831 -0.05867998 -0.05764945" rpy="0 0 0"/>
+      <mass value="1.84174869"/>
+      <inertia ixx="0.00339042" ixy="0.00000130" ixz="-0.00000978" iyy="0.00287691" iyz="-0.00029218" izz="0.00253348"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_hip_pitch_link.STL"/>
+      </geometry>
+      <material name="RP1_BLUE">
+        <color rgba="0.0784 0.3137 0.9216 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_hip_pitch_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_hip_pitch_joint" type="revolute">
+    <origin xyz="-0.03843 -0.069013 -0.051639" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="right_hip_pitch_link"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="-2.86" upper="2.86" effort="140" velocity="13.61356817"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.0290856"/>
+  </joint>
+  <link name="right_hip_roll_link">
+    <inertial>
+      <origin xyz="-0.00518991 -0.00003499 -0.08084106" rpy="0 0 0"/>
+      <mass value="1.473"/>
+      <inertia ixx="0.00376408" ixy="0.00000313" ixz="-0.00065554" iyy="0.00382823" iyz="-0.00000256" izz="0.00192275"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_hip_roll_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_hip_roll_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_hip_roll_joint" type="revolute">
+    <origin xyz="0.031915 -0.061254 -0.060672" rpy="0 0 0"/>
+    <parent link="right_hip_pitch_link"/>
+    <child link="right_hip_roll_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-2.6" upper="0.74" effort="140" velocity="13.61356817"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.0290856"/>
+  </joint>
+  <link name="right_hip_yaw_link">
+    <inertial>
+      <origin xyz="-0.01958069 0.00023065 -0.12376565" rpy="0 0 0"/>
+      <mass value="2.483"/>
+      <inertia ixx="0.01132547" ixy="-0.00001670" ixz="-0.00196009" iyy="0.01225907" iyz="-0.00002438" izz="0.00383024"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_hip_yaw_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_hip_yaw_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_hip_yaw_joint" type="revolute">
+    <origin xyz="-0.012698 0 -0.129" rpy="0 0 0"/>
+    <parent link="right_hip_roll_link"/>
+    <child link="right_hip_yaw_link"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-2.76" upper="2.76" effort="55" velocity="16.23156204"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00884"/>
+  </joint>
+  <link name="right_knee_link">
+    <inertial>
+      <origin xyz="0.03115290 -0.03066848 -0.13404559" rpy="0 0 0"/>
+      <mass value="2.557"/>
+      <inertia ixx="0.01802753" ixy="0.00006186" ixz="-0.00023263" iyy="0.01813266" iyz="0.00002714" izz="0.00288242"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_knee_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_knee_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_knee_joint" type="revolute">
+    <origin xyz="-0.0332010004232152 0.0308089665012395 -0.165090022909223" rpy="0 0 0"/>
+    <parent link="right_hip_yaw_link"/>
+    <child link="right_knee_link"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.06" upper="2.83" effort="140" velocity="13.61356817"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.0290856"/>
+  </joint>
+  <link name="right_ankle_pitch_link">
+    <inertial>
+      <origin xyz="0.00126328 0.00000000 -0.01319163" rpy="0 0 0"/>
+      <mass value="0.16605731"/>
+      <inertia ixx="0.00003624" ixy="0.00000000" ixz="0.00000148" iyy="0.00004292" iyz="0.00000000" izz="0.00002407"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_ankle_pitch_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_ankle_pitch_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_ankle_pitch_joint" type="revolute">
+    <origin xyz="0.03131 -0.030809 -0.30533" rpy="0 0 0"/>
+    <parent link="right_knee_link"/>
+    <child link="right_ankle_pitch_link"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.78" upper="0.61" effort="64" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.006266268"/>
+  </joint>
+  <link name="right_ankle_roll_link">
+    <inertial>
+      <origin xyz="0.008711 -0.000002 -0.021633" rpy="0 0 0"/>
+      <mass value="0.6430"/>
+      <inertia ixx="0.000361" ixy="0.000000" ixz="0.000123" iyy="0.001920" iyz="0.000000" izz="0.002002"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_ankle_roll_link_visual_white.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_ankle_roll_detail_blue.STL"/>
+      </geometry>
+      <material name="RP1_BLUE">
+        <color rgba="0.0784 0.3137 0.9216 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0225 0 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.210"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0225 0.01 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.200"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0225 -0.01 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.200"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0225 0.02 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.175"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0225 -0.02 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.175"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.06 0.03 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.06"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.06 -0.03 -0.035" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.01" length="0.06"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_ankle_roll_joint" type="revolute">
+    <origin xyz="0.013067 0 -0.018922" rpy="0 0 0"/>
+    <parent link="right_ankle_pitch_link"/>
+    <child link="right_ankle_roll_link"/>
+    <axis xyz="0.999993677858222 0 0.00355587451777984"/>
+    <limit lower="-0.26" upper="0.26" effort="64" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.006266268"/>
+  </joint>
+  <!-- ===== WAIST ===== -->
+  <link name="waist_roll_link">
+    <inertial>
+      <origin xyz="-0.03058205 0.00004115 -0.00029517" rpy="0 0 0"/>
+      <mass value="1.53201882"/>
+      <inertia ixx="0.00221249" ixy="-0.00000117" ixz="-0.00000777" iyy="0.00166198" iyz="-0.00000329" izz="0.00164327"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/waist_roll_link.STL"/>
+      </geometry>
+      <material name="RP1_BLUE">
+        <color rgba="0.0784 0.3137 0.9216 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/waist_roll_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="waist_roll_joint" type="revolute">
+    <origin xyz="-0.00757994881845658 -0.00301269924435144 0.0529838303646947" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="waist_roll_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.7" upper="0.7" effort="140" velocity="13.61356817"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.0290856"/>
+  </joint>
+  <link name="waist_yaw_link">
+    <inertial>
+      <origin xyz="-0.001424 0.000080 0.128866" rpy="0 0 0"/>
+      <mass value="8.3430"/>
+      <inertia ixx="0.109179" ixy="-0.000027" ixz="0.002082" iyy="0.092853" iyz="-0.000013" izz="0.041145"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/waist_yaw_link_visual_white.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/waist_yaw_logo_visual_blue.STL"/>
+      </geometry>
+      <material name="ROBO_PARTY_BLUE">
+        <color rgba="0.039216 0.235294 0.588235 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/waist_yaw_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="waist_yaw_joint" type="revolute">
+    <origin xyz="-0.0308449999997339 0 0.0679999999997294" rpy="0 0 0"/>
+    <parent link="waist_roll_link"/>
+    <child link="waist_yaw_link"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-2.91" upper="2.91" effort="140" velocity="13.61356817"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.0290856"/>
+  </joint>
+  <!-- ===== LEFT ARM ===== -->
+  <link name="left_shoulder_pitch_link">
+    <inertial>
+      <origin xyz="-0.00227488 0.05877203 -0.01145894" rpy="0 0 0"/>
+      <mass value="0.82850012"/>
+      <inertia ixx="0.00077624" ixy="0.00001858" ixz="-0.00000678" iyy="0.00060519" iyz="0.00008598" izz="0.00074547"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_shoulder_pitch_link.STL"/>
+      </geometry>
+      <material name="RP1_BLUE">
+        <color rgba="0.0784 0.3137 0.9216 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_shoulder_pitch_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0 0.116496194698121 0.19848715574272" rpy="0 0 0"/>
+    <parent link="waist_yaw_link"/>
+    <child link="left_shoulder_pitch_link"/>
+    <axis xyz="0 0.99619 0.087156"/>
+    <limit lower="-3.4" upper="2.35" effort="55" velocity="16.23156204"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00884"/>
+  </joint>
+  <link name="left_shoulder_roll_link">
+    <inertial>
+      <origin xyz="-0.01613398 0.00000564 -0.06609383" rpy="0 0 0"/>
+      <mass value="0.76916758"/>
+      <inertia ixx="0.00079857" ixy="0.00000012" ixz="-0.00012702" iyy="0.00081142" iyz="-0.00000004" izz="0.00051033"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_shoulder_roll_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_shoulder_roll_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_shoulder_roll_joint" type="revolute">
+    <origin xyz="0.0287432951006891 0.0653494445514435 -0.014608906526987" rpy="0 0 0"/>
+    <parent link="left_shoulder_pitch_link"/>
+    <child link="left_shoulder_roll_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.47" upper="2.9" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <link name="left_shoulder_yaw_link">
+    <inertial>
+      <origin xyz="0.01447570 -0.00112029 -0.08587480" rpy="0 0 0"/>
+      <mass value="0.95227320"/>
+      <inertia ixx="0.00179605" ixy="-0.00000292" ixz="0.00031386" iyy="0.00188468" iyz="-0.00001579" izz="0.00081430"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_shoulder_yaw_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_shoulder_yaw_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_shoulder_yaw_joint" type="revolute">
+    <origin xyz="-0.0190574930004302 0 -0.105000039994097" rpy="0 0 0"/>
+    <parent link="left_shoulder_roll_link"/>
+    <child link="left_shoulder_yaw_link"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-2.87" upper="2.87" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <link name="left_elbow_link">
+    <inertial>
+      <origin xyz="0.07222795 0.03107894 -0.01809537" rpy="0 0 0"/>
+      <mass value="0.77922872"/>
+      <inertia ixx="0.00060310" ixy="-0.00005057" ixz="0.00006993" iyy="0.00112121" iyz="0.00001181" izz="0.00118539"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_elbow_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_elbow_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_elbow_joint" type="revolute">
+    <origin xyz="0.020796 -0.031888 -0.10414" rpy="0 0 0"/>
+    <parent link="left_shoulder_yaw_link"/>
+    <child link="left_elbow_link"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="-1.6" upper="1.24" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <link name="left_wrist_roll_link">
+    <inertial>
+      <origin xyz="0.01827024 0.00000000 0.01027564" rpy="0 0 0"/>
+      <mass value="0.16115938"/>
+      <inertia ixx="0.00013435" ixy="0.00000000" ixz="-0.00003765" iyy="0.00015892" iyz="0.00000000" izz="0.00014383"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_wrist_roll_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_wrist_roll_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_wrist_roll_joint" type="revolute">
+    <origin xyz="0.116093381994033 0.031859446289993 -0.0187927584979322" rpy="0 0 0"/>
+    <parent link="left_elbow_link"/>
+    <child link="left_wrist_roll_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-2.56" upper="2.56" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <link name="left_wrist_yaw_link">
+    <inertial>
+      <origin xyz="0.03084697 0.00040090 -0.02788482" rpy="0 0 0"/>
+      <mass value="1.03494219"/>
+      <inertia ixx="0.00054429" ixy="-0.00001216" ixz="-0.00005099" iyy="0.00151988" iyz="-0.00000019" izz="0.00149427"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_wrist_yaw_link.STL"/>
+      </geometry>
+      <material name="RP1_BLUE">
+        <color rgba="0.0784 0.3137 0.9216 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_wrist_yaw_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_wrist_yaw_joint" type="revolute">
+    <origin xyz="0.053 0 0.020701" rpy="0 0 0"/>
+    <parent link="left_wrist_roll_link"/>
+    <child link="left_wrist_yaw_link"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-1.22" upper="1.22" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <link name="left_wrist_pitch_link">
+    <inertial>
+      <origin xyz="0.02303536 -0.00952864 0.00000000" rpy="0 0 0"/>
+      <mass value="0.07319805"/>
+      <inertia ixx="0.00003995" ixy="0.00001970" ixz="0.00000000" iyy="0.00005202" iyz="0.00000000" izz="0.00006476"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_wrist_pitch_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/left_wrist_pitch_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_wrist_pitch_joint" type="revolute">
+    <origin xyz="0.062136 0.029458 -0.026067" rpy="0 0 0"/>
+    <parent link="left_wrist_yaw_link"/>
+    <child link="left_wrist_pitch_link"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.22" upper="1.22" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <!-- ===== RIGHT ARM ===== -->
+  <link name="right_shoulder_pitch_link">
+    <inertial>
+      <origin xyz="-0.00227477 -0.05856201 -0.01145858" rpy="0 0 0"/>
+      <mass value="0.82850796"/>
+      <inertia ixx="0.00077392" ixy="-0.00001370" ixz="-0.00000678" iyy="0.00060520" iyz="-0.00008562" izz="0.00074316"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_shoulder_pitch_link.STL"/>
+      </geometry>
+      <material name="RP1_BLUE">
+        <color rgba="0.0784 0.3137 0.9216 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_shoulder_pitch_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0 -0.116496194698064 0.198487155742749" rpy="0 0 0"/>
+    <parent link="waist_yaw_link"/>
+    <child link="right_shoulder_pitch_link"/>
+    <axis xyz="0 -0.99619 0.087156"/>
+    <limit lower="-2.35" upper="3.4" effort="55" velocity="16.23156204"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00884"/>
+  </joint>
+  <link name="right_shoulder_roll_link">
+    <inertial>
+      <origin xyz="-0.01626203 0.00000539 -0.06810375" rpy="0 0 0"/>
+      <mass value="0.80442734"/>
+      <inertia ixx="0.00087815" ixy="0.00000011" ixz="-0.00013154" iyy="0.00088810" iyz="-0.00000005" izz="0.00052415"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_shoulder_roll_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_shoulder_roll_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_shoulder_roll_joint" type="revolute">
+    <origin xyz="0.0287432951007422 -0.0653494445235536 -0.0146089065305009" rpy="0 0 0"/>
+    <parent link="right_shoulder_pitch_link"/>
+    <child link="right_shoulder_roll_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-2.9" upper="0.47" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <link name="right_shoulder_yaw_link">
+    <inertial>
+      <origin xyz="0.01430772 0.00112150 -0.08592529" rpy="0 0 0"/>
+      <mass value="0.95225273"/>
+      <inertia ixx="0.00179792" ixy="-0.00000160" ixz="0.00031064" iyy="0.00188417" iyz="0.00001448" izz="0.00081194"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_shoulder_yaw_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_shoulder_yaw_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_shoulder_yaw_joint" type="revolute">
+    <origin xyz="-0.0190573923593691 0 -0.105000126276637" rpy="0 0 0"/>
+    <parent link="right_shoulder_roll_link"/>
+    <child link="right_shoulder_yaw_link"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-2.87" upper="2.87" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <link name="right_elbow_link">
+    <inertial>
+      <origin xyz="0.07222795 -0.03090613 -0.01799316" rpy="0 0 0"/>
+      <mass value="0.77922499"/>
+      <inertia ixx="0.00060275" ixy="0.00005257" ixz="0.00007112" iyy="0.00112238" iyz="-0.00001226" izz="0.00118388"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_elbow_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_elbow_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_elbow_joint" type="revolute">
+    <origin xyz="0.0207956801502895 0.031887525882762 -0.104135222723484" rpy="0 0 0"/>
+    <parent link="right_shoulder_yaw_link"/>
+    <child link="right_elbow_link"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.24" upper="1.6" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <link name="right_wrist_roll_link">
+    <inertial>
+      <origin xyz="0.01827024 0.00000000 0.01027555" rpy="0 0 0"/>
+      <mass value="0.16115938"/>
+      <inertia ixx="0.00013435" ixy="0.00000000" ixz="-0.00003765" iyy="0.00015892" iyz="0.00000000" izz="0.00014383"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_wrist_roll_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_wrist_roll_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_wrist_roll_joint" type="revolute">
+    <origin xyz="0.11609334409225 -0.031859369715491 -0.0187927299688337" rpy="0 0 0"/>
+    <parent link="right_elbow_link"/>
+    <child link="right_wrist_roll_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-2.56" upper="2.56" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <link name="right_wrist_yaw_link">
+    <inertial>
+      <origin xyz="0.03084434 -0.00041157 -0.02787816" rpy="0 0 0"/>
+      <mass value="1.03493727"/>
+      <inertia ixx="0.00054424" ixy="0.00001173" ixz="-0.00005112" iyy="0.00152006" iyz="0.00000048" izz="0.00149435"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_wrist_yaw_link.STL"/>
+      </geometry>
+      <material name="RP1_BLUE">
+        <color rgba="0.0784 0.3137 0.9216 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_wrist_yaw_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_wrist_yaw_joint" type="revolute">
+    <origin xyz="0.053 0 0.020701" rpy="0 0 0"/>
+    <parent link="right_wrist_roll_link"/>
+    <child link="right_wrist_yaw_link"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-1.22" upper="1.22" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <link name="right_wrist_pitch_link">
+    <inertial>
+      <origin xyz="0.02282168 0.00967600 0.00000000" rpy="0 0 0"/>
+      <mass value="0.07221264"/>
+      <inertia ixx="0.00003980" ixy="-0.00001987" ixz="0.00000000" iyy="0.00005175" iyz="0.00000000" izz="0.00006439"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_wrist_pitch_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/right_wrist_pitch_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_wrist_pitch_joint" type="revolute">
+    <origin xyz="0.062136 -0.029458 -0.026067" rpy="0 0 0"/>
+    <parent link="right_wrist_yaw_link"/>
+    <child link="right_wrist_pitch_link"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="-1.22" upper="1.22" effort="32" velocity="15.70796327"/>
+    <dynamics damping="0.01" friction="0.1" armature="0.00313313"/>
+  </joint>
+  <link name="lh_base_link">
+    <inertial>
+      <origin xyz="0.00074258 -0.0074101 0.047286" rpy="0 0 0"/>
+      <mass value="0.10796"/>
+      <inertia ixx="4.6383E-05" ixy="-3.2407E-08" ixz="1.9335E-07" iyy="6.715E-05" iyz="1.5535E-06" izz="3.0034E-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/base_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_base_palm_back_0_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_back_0_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_back_0_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_back_0_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_back_0_2">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_back_0_2.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_back_1_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_back_1_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_back_1_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_back_1_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_back_1_2">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_back_1_2.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_back_2_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_back_2_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_back_2_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_back_2_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_back_2_2">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_back_2_2.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_1_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_1_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_1_2">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_1_2.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_1_axle_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_1_axle_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_1_axle_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_1_axle_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_2_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_2_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_2_2">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_2_2.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_2_axle_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_2_axle_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_2_axle_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_2_axle_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_3_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_3_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_3_2">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_3_2.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_3_axle_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_3_axle_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_3_axle_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_3_axle_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_4_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_4_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_4_2">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_4_2.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_4_axle_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_4_axle_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_finger_root_4_axle_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_finger_root_4_axle_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_front_0_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_front_0_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_front_0_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_front_0_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_front_1_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_front_1_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_front_1_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_front_1_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_front_1_2">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_front_1_2.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_front_2_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_front_2_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_front_2_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_front_2_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_front_2_2">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_front_2_2.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_0_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_0_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_0_rail">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_0_rail.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_0_tip_0_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_0_tip_0_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_0_tip_1_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_0_tip_1_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_1_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_1_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_1_rail">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_1_rail.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_1_tip_0_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_1_tip_0_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_1_tip_1_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_1_tip_1_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_2_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_2_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_2_rail">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_2_rail.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_2_tip_0_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_2_tip_0_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_2_tip_1_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_2_tip_1_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_3_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_3_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_3_rail">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_3_rail.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_3_tip_0_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_3_tip_0_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_3_tip_0_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_3_tip_0_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_mount_3_tip_1_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_mount_3_tip_1_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_mount_bank_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_mount_bank_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_mount_bank_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_mount_bank_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_mount_floor">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_mount_floor.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_07.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_08_0_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_08_0_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_08_0_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_08_0_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_08_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_08_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_09_0_0">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_09_0_0.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_09_0_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_09_0_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_09_1">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_09_1.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_10">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_10.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_thumb_rim_11">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_thumb_rim_11.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_base_palm_wrist">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/palm/palm_wrist.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger11_link">
+    <inertial>
+      <origin xyz="0.0084275 0.0014873 0.00095853" rpy="0 0 0"/>
+      <mass value="0.0027298"/>
+      <inertia ixx="3.5725E-07" ixy="-7.4158E-09" ixz="-3.5014E-08" iyy="3.2865E-07" iyz="-1.169E-08" izz="1.0938E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger11_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger11_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_07.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_08">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_08.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_09">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_09.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_10">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_10.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_11">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_11.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_12">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_12.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_13">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_13.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_14">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_14.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_15">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_15.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_16">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_16.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_17">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_17.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_18">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_18.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_19">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_19.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_20">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_20.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_21">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_21.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_22">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_22.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_23">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_23.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_24">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_24.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_25">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_25.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_26">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_26.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_27">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_27.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_28">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_28.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger11_29">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger11_29.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger12_link">
+    <inertial>
+      <origin xyz="-0.021058 0.028795 -0.019946" rpy="0 0 0"/>
+      <mass value="0.15692"/>
+      <inertia ixx="0.00030961" ixy="5.4172E-05" ixz="5.3321E-06" iyy="0.00013891" iyz="-3.9727E-05" izz="0.00022363"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger12_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger12_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_07.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_08">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_08.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_09">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_09.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_10">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_10.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_11">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_11.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_12">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_12.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_13">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_13.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_14">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_14.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_15">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_15.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_16">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_16.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_17">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_17.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_18">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_18.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_19">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_19.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_20">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_20.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_21">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_21.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_22">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_22.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_23">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_23.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_24">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_24.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_25">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_25.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_26">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_26.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_27">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_27.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_28">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_28.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_29">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_29.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_30">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_30.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_31">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_31.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_32">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_32.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_33">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_33.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_34">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_34.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_35">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_35.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_36">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_36.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_37">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_37.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_38">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_38.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_39">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_39.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_40">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_40.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger12_41">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger12_41.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger13_link">
+    <inertial>
+      <origin xyz="2.0798E-05 -0.0010263 0.0087715" rpy="0 0 0"/>
+      <mass value="0.0051235"/>
+      <inertia ixx="2.4095E-07" ixy="-4.7789E-10" ixz="-9.7647E-10" iyy="3.0808E-07" iyz="-2.5035E-09" izz="1.6137E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger13_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger13_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger13_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger13_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger13_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger13_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger13_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger13_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger13_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger13_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger13_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger13_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger13_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger13_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger13_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger13_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger13_07.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger14_link">
+    <inertial>
+      <origin xyz="-3.8304E-06 0.0042573 0.012288" rpy="0 0 0"/>
+      <mass value="0.0024051"/>
+      <inertia ixx="6.5145E-08" ixy="-3.3333E-10" ixz="-5.3723E-10" iyy="9.9513E-08" iyz="4.5334E-09" izz="5.5445E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger14_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger14_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger14_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger14_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger14_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger14_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger14_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger14_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger14_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger14_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger14_04.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger21_link">
+    <inertial>
+      <origin xyz="3.7099E-06 -0.00011919 0.014618" rpy="0 0 0"/>
+      <mass value="0.003938"/>
+      <inertia ixx="3.1596E-07" ixy="-4.1456E-11" ixz="-5.5676E-11" iyy="3.4221E-07" iyz="-2.8999E-08" izz="1.5546E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger21_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger21_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger21_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger21_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger21_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger21_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger21_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger21_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger21_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger21_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger21_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger21_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger21_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger21_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger21_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger21_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger21_07.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger21_08">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger21_08.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger22_link">
+    <inertial>
+      <origin xyz="3.4856E-05 -0.0023817 0.010735" rpy="0 0 0"/>
+      <mass value="0.0035951"/>
+      <inertia ixx="3.7147E-07" ixy="7.6809E-11" ixz="-2.1746E-09" iyy="3.7949E-07" iyz="-1.1538E-08" izz="5.7613E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger22_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger22_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger22_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger22_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger22_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger22_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger22_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger22_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger22_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger22_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger22_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger22_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger22_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger22_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger22_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger22_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger22_07.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger23_link">
+    <inertial>
+      <origin xyz="7.8368E-05 0.0020018 0.019395" rpy="0 0 0"/>
+      <mass value="0.0019493"/>
+      <inertia ixx="9.2479E-08" ixy="3.0475E-11" ixz="-2.7428E-11" iyy="9.8313E-08" iyz="-1.5567E-08" izz="2.6652E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger23_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger23_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger23_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger23_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger23_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger23_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger23_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger23_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger23_03.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger31_link">
+    <inertial>
+      <origin xyz="2.5591E-06 8.5087E-05 0.016695" rpy="0 0 0"/>
+      <mass value="0.0046564"/>
+      <inertia ixx="4.6404E-07" ixy="-6.6121E-11" ixz="-4.4012E-11" iyy="4.9011E-07" iyz="-4.5262E-08" izz="1.8452E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger31_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger31_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger31_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger31_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger31_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger31_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger31_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger31_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger31_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger31_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger31_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger31_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger31_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger31_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger31_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger31_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger31_07.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger31_08">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger31_08.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger32_link">
+    <inertial>
+      <origin xyz="5.3761E-07 -1.2538E-05 0.012568" rpy="0 0 0"/>
+      <mass value="0.0039652"/>
+      <inertia ixx="5.1368E-07" ixy="-4.1127E-10" ixz="-1.5216E-09" iyy="5.0101E-07" iyz="-1.0082E-07" izz="8.7117E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger32_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger32_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger32_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger32_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger32_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger32_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger32_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger32_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger32_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger32_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger32_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger32_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger32_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger32_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger32_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger32_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger32_07.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger33_link">
+    <inertial>
+      <origin xyz="-2.1786E-06 0.0059988 0.02098" rpy="0 0 0"/>
+      <mass value="0.0022728"/>
+      <inertia ixx="1.4797E-07" ixy="1.6047E-11" ixz="-8.1878E-13" iyy="1.4043E-07" iyz="-4.353E-08" izz="4.3712E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger33_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger33_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger33_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger33_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger33_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger33_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger33_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger33_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger33_03.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger41_link">
+    <inertial>
+      <origin xyz="2.0328E-06 -0.00060204 0.014928" rpy="0 0 0"/>
+      <mass value="0.0041427"/>
+      <inertia ixx="3.621E-07" ixy="-4.6417E-11" ixz="-4.1481E-11" iyy="3.8957E-07" iyz="-3.1589E-08" izz="1.6169E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger41_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger41_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger41_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger41_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger41_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger41_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger41_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger41_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger41_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger41_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger41_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger41_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger41_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger41_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger41_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger41_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger41_07.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger41_08">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger41_08.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger42_link">
+    <inertial>
+      <origin xyz="2.8428E-05 -0.001525 0.011155" rpy="0 0 0"/>
+      <mass value="0.0038285"/>
+      <inertia ixx="3.9947E-07" ixy="-3.73E-11" ixz="-2.2809E-09" iyy="4.0449E-07" iyz="-3.5369E-08" izz="6.5075E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger42_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger42_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger42_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger42_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger42_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger42_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger42_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger42_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger42_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger42_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger42_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger42_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger42_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger42_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger42_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger42_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger42_07.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger43_link">
+    <inertial>
+      <origin xyz="8.2647E-05 0.0034199 0.020014" rpy="0 0 0"/>
+      <mass value="0.0019493"/>
+      <inertia ixx="9.2476E-08" ixy="4.4007E-11" ixz="-6.2162E-11" iyy="9.5853E-08" iyz="-2.0306E-08" izz="2.9109E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger43_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger43_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger43_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger43_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger43_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger43_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger43_02.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger51_link">
+    <inertial>
+      <origin xyz="0.0005971 -0.0018425 0.013171" rpy="0 0 0"/>
+      <mass value="0.0034504"/>
+      <inertia ixx="2.3783E-07" ixy="-2.64E-10" ixz="-3.398E-09" iyy="2.6908E-07" iyz="-7.554E-09" izz="1.3534E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger51_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger51_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_07.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_08">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_08.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_09">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_09.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_10">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_10.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_11">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_11.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_12">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_12.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger51_13">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger51_13.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger52_link">
+    <inertial>
+      <origin xyz="3.1581E-05 -0.0009964 0.0084913" rpy="0 0 0"/>
+      <mass value="0.0034586"/>
+      <inertia ixx="2.5318E-07" ixy="-6.386E-11" ixz="-1.0687E-09" iyy="2.5376E-07" iyz="-2.5784E-08" izz="6.4634E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger52_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger52_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger52_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger52_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger52_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger52_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger52_02.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger52_03">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger52_03.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger52_04">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger52_04.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger52_05">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger52_05.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger52_06">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger52_06.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger52_07">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger52_07.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger52_08">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger52_08.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lh_finger53_link">
+    <inertial>
+      <origin xyz="0.00010532 0.0043692 0.016718" rpy="0 0 0"/>
+      <mass value="0.0014962"/>
+      <inertia ixx="4.394E-08" ixy="4.4189E-11" ixz="2.3366E-10" iyy="4.5405E-08" iyz="-1.0753E-08" izz="2.1333E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/left/finger53_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="lh_finger53_00">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger53_00.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger53_01">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger53_01.stl"/>
+      </geometry>
+    </collision>
+    <collision name="lh_finger53_02">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/collision/left_hand/fingers/lh_finger53_02.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lh_finger11" type="revolute">
+    <origin xyz="0.019352 0.0078052 0.03432" rpy="0 5.6618E-05 0"/>
+    <parent link="lh_base_link"/>
+    <child link="lh_finger11_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="1.75" effort="0" velocity="0"/>
+  </joint>
+  <joint name="lh_finger12" type="revolute">
+    <origin xyz="0.015 0.0024172 0.0067143" rpy="1.1789 0.2618 1.5708"/>
+    <parent link="lh_finger11_link"/>
+    <child link="lh_finger12_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.40" effort="0" velocity="0"/>
+  </joint>
+  <joint name="lh_finger13" type="revolute">
+    <origin xyz="0 0 0.040273" rpy="0 0 0"/>
+    <parent link="lh_finger12_link"/>
+    <child link="lh_finger13_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.13" effort="0" velocity="0"/>
+    <mimic joint="lh_finger12" multiplier="0.929" offset="-0.015082"/>
+  </joint>
+  <joint name="lh_finger14" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="lh_finger13_link"/>
+    <child link="lh_finger14_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <joint name="lh_finger21" type="revolute">
+    <origin xyz="0.026322 -0.0053264 0.083909" rpy="0.015713 0.09766 0.15979"/>
+    <parent link="lh_base_link"/>
+    <child link="lh_finger21_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.40" effort="0" velocity="0"/>
+  </joint>
+  <joint name="lh_finger22" type="revolute">
+    <origin xyz="0 0.0030778 0.027857" rpy="-0.11004 0 0"/>
+    <parent link="lh_finger21_link"/>
+    <child link="lh_finger22_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.75" effort="0" velocity="0"/>
+    <mimic joint="lh_finger21" multiplier="0.8847" offset="0.038265"/>
+  </joint>
+  <joint name="lh_finger23" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="lh_finger22_link"/>
+    <child link="lh_finger23_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <joint name="lh_finger31" type="revolute">
+    <origin xyz="0.0085306 -0.006534 0.088185" rpy="0.00071294 0.013408 0.053126"/>
+    <parent link="lh_base_link"/>
+    <child link="lh_finger31_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.40" effort="0" velocity="0"/>
+  </joint>
+  <joint name="lh_finger32" type="revolute">
+    <origin xyz="0 0.0037175 0.032318" rpy="0 0 0"/>
+    <parent link="lh_finger31_link"/>
+    <child link="lh_finger32_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.75" effort="0" velocity="0"/>
+    <mimic joint="lh_finger31" multiplier="0.8485" offset="0.035946"/>
+  </joint>
+  <joint name="lh_finger33" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="lh_finger32_link"/>
+    <child link="lh_finger33_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <joint name="lh_finger41" type="revolute">
+    <origin xyz="-0.0088876 -0.0072813 0.087396" rpy="0.0030266 -0.061554 -0.049162"/>
+    <parent link="lh_base_link"/>
+    <child link="lh_finger41_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.40" effort="0" velocity="0"/>
+  </joint>
+  <joint name="lh_finger42" type="revolute">
+    <origin xyz="0 0.0025283 0.02942" rpy="0 0 0"/>
+    <parent link="lh_finger41_link"/>
+    <child link="lh_finger42_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.75" effort="0" velocity="0"/>
+    <mimic joint="lh_finger41" multiplier="0.8321" offset="0.043170"/>
+  </joint>
+  <joint name="lh_finger43" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="lh_finger42_link"/>
+    <child link="lh_finger43_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <joint name="lh_finger51" type="revolute">
+    <origin xyz="-0.026448 -0.0055489 0.08298" rpy="-0.074855 -0.15057 -0.14704"/>
+    <parent link="lh_base_link"/>
+    <child link="lh_finger51_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.40" effort="0" velocity="0"/>
+  </joint>
+  <joint name="lh_finger52" type="revolute">
+    <origin xyz="0 0 0.025024" rpy="0.097068 0 0"/>
+    <parent link="lh_finger51_link"/>
+    <child link="lh_finger52_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.75" effort="0" velocity="0"/>
+    <mimic joint="lh_finger51" multiplier="0.7349" offset="0.035218"/>
+  </joint>
+  <joint name="lh_finger53" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="lh_finger52_link"/>
+    <child link="lh_finger53_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <joint name="lh_hand_mount" type="fixed">
+    <origin xyz="0.066 -0.02792 -0.00041" rpy="3.14159265 -1.57079633 0"/>
+    <parent link="left_wrist_pitch_link"/>
+    <child link="lh_base_link"/>
+  </joint>
+  <link name="rh_base_link">
+    <inertial>
+      <origin xyz="0.00044529 0.0074122 0.047285" rpy="0 0 0"/>
+      <mass value="0.10795"/>
+      <inertia ixx="4.6381E-05" ixy="2.7508E-08" ixz="1.863E-07" iyy="6.7147E-05" iyz="-1.5554E-06" izz="3.0034E-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/base_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision name="rh_palm_cyl_0">
+      <origin xyz="-0.002000 -0.002000 0.020000" rpy="0 1.570796327 0"/>
+      <geometry>
+        <cylinder radius="0.012000" length="0.036000"/>
+      </geometry>
+    </collision>
+    <collision name="rh_palm_sph_0">
+      <origin xyz="-0.020000 -0.002000 0.020000" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.012000"/>
+      </geometry>
+    </collision>
+    <collision name="rh_palm_sph_1">
+      <origin xyz="0.016000 -0.002000 0.020000" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.012000"/>
+      </geometry>
+    </collision>
+    <collision name="rh_palm_cyl_1">
+      <origin xyz="-0.002000 -0.002000 0.036000" rpy="0 1.570796327 0"/>
+      <geometry>
+        <cylinder radius="0.012000" length="0.036000"/>
+      </geometry>
+    </collision>
+    <collision name="rh_palm_sph_2">
+      <origin xyz="-0.020000 -0.002000 0.036000" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.012000"/>
+      </geometry>
+    </collision>
+    <collision name="rh_palm_sph_3">
+      <origin xyz="0.016000 -0.002000 0.036000" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.012000"/>
+      </geometry>
+    </collision>
+    <collision name="rh_palm_cyl_2">
+      <origin xyz="-0.002000 0.001000 0.052000" rpy="0 1.570796327 0"/>
+      <geometry>
+        <cylinder radius="0.012000" length="0.036000"/>
+      </geometry>
+    </collision>
+    <collision name="rh_palm_sph_4">
+      <origin xyz="-0.020000 0.001000 0.052000" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.012000"/>
+      </geometry>
+    </collision>
+    <collision name="rh_palm_sph_5">
+      <origin xyz="0.016000 0.001000 0.052000" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.012000"/>
+      </geometry>
+    </collision>
+    <collision name="rh_palm_cyl_3">
+      <origin xyz="-0.002000 0.006000 0.070000" rpy="0 1.570796327 0"/>
+      <geometry>
+        <cylinder radius="0.012000" length="0.036000"/>
+      </geometry>
+    </collision>
+    <collision name="rh_palm_sph_6">
+      <origin xyz="-0.020000 0.006000 0.070000" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.012000"/>
+      </geometry>
+    </collision>
+    <collision name="rh_palm_sph_7">
+      <origin xyz="0.016000 0.006000 0.070000" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.012000"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger11_link">
+    <inertial>
+      <origin xyz="-0.0014872 -0.0084274 0.00095867" rpy="0 0 0"/>
+      <mass value="0.0027298"/>
+      <inertia ixx="3.2865E-07" ixy="-7.416E-09" ixz="1.1689E-08" iyy="3.5725E-07" iyz="3.5012E-08" izz="1.0938E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger11_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger11_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger12_link">
+    <inertial>
+      <origin xyz="0.021017 0.028207 -0.020207" rpy="0 0 0"/>
+      <mass value="0.15691"/>
+      <inertia ixx="0.00031329" ixy="-5.4214E-05" ixz="-3.0162E-06" iyy="0.00014267" iyz="-3.8971E-05" izz="0.00022524"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger12_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger12_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger13_link">
+    <inertial>
+      <origin xyz="2.0803E-05 -0.0010263 0.0087716" rpy="0 0 0"/>
+      <mass value="0.0051235"/>
+      <inertia ixx="2.4095E-07" ixy="-4.7783E-10" ixz="-9.7696E-10" iyy="3.0808E-07" iyz="-2.5033E-09" izz="1.6137E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger13_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger13_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger14_link">
+    <inertial>
+      <origin xyz="-3.9568E-06 0.0042569 0.012288" rpy="0 0 0"/>
+      <mass value="0.0024048"/>
+      <inertia ixx="6.5133E-08" ixy="-3.3089E-10" ixz="-5.4015E-10" iyy="9.9517E-08" iyz="4.5348E-09" izz="5.5452E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger14_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger14_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger21_link">
+    <inertial>
+      <origin xyz="-3.1071E-06 -0.00017638 0.014617" rpy="0 0 0"/>
+      <mass value="0.0039377"/>
+      <inertia ixx="3.1595E-07" ixy="-3.4302E-11" ixz="6.472E-11" iyy="3.4097E-07" iyz="3.2752E-08" izz="1.5671E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger21_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger21_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger22_link">
+    <inertial>
+      <origin xyz="-3.4858E-05 0.00071691 0.010973" rpy="0 0 0"/>
+      <mass value="0.0035951"/>
+      <inertia ixx="3.7147E-07" ixy="-2.5545E-10" ixz="2.1606E-09" iyy="3.6852E-07" iyz="5.9509E-08" izz="6.8574E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger22_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger22_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger23_link">
+    <inertial>
+      <origin xyz="-7.8448E-05 -0.004936 0.018863" rpy="0 0 0"/>
+      <mass value="0.0019493"/>
+      <inertia ixx="9.2478E-08" ixy="2.6283E-11" ixz="3.1426E-11" iyy="9.1954E-08" iyz="2.5642E-08" izz="3.301E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger23_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger23_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger31_link">
+    <inertial>
+      <origin xyz="-2.463E-06 0.0016883 0.016609" rpy="0 0 0"/>
+      <mass value="0.0046564"/>
+      <inertia ixx="4.6403E-07" ixy="-6.2008E-11" ixz="5.3483E-11" iyy="4.9622E-07" iyz="1.1987E-08" izz="1.7841E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger31_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger31_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger32_link">
+    <inertial>
+      <origin xyz="-4.2116E-07 0.0013472 0.012495" rpy="0 0 0"/>
+      <mass value="0.0039648"/>
+      <inertia ixx="5.136E-07" ixy="-2.467E-10" ixz="1.5491E-09" iyy="5.1755E-07" iyz="5.4832E-08" izz="7.0491E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger32_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger32_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger33_link">
+    <inertial>
+      <origin xyz="2.3154E-06 -0.0037373 0.021499" rpy="0 0 0"/>
+      <mass value="0.0022727"/>
+      <inertia ixx="1.4796E-07" ixy="1.5864E-11" ixz="-3.152E-13" iyy="1.4852E-07" iyz="3.2337E-08" izz="3.561E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger33_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger33_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger41_link">
+    <inertial>
+      <origin xyz="-2.0192E-06 0.0018776 0.014821" rpy="0 0 0"/>
+      <mass value="0.0041427"/>
+      <inertia ixx="3.6211E-07" ixy="-4.5157E-11" ixz="4.6434E-11" iyy="3.9328E-07" iyz="1.1678E-08" izz="1.5797E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger41_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger41_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger42_link">
+    <inertial>
+      <origin xyz="-2.8427E-05 0.0015404 0.011153" rpy="0 0 0"/>
+      <mass value="0.0038285"/>
+      <inertia ixx="3.9947E-07" ixy="-3.4225E-11" ixz="2.2812E-09" iyy="4.0458E-07" iyz="3.4902E-08" izz="6.4978E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger42_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger42_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger43_link">
+    <inertial>
+      <origin xyz="-8.2684E-05 -0.0033924 0.020019" rpy="0 0 0"/>
+      <mass value="0.0019493"/>
+      <inertia ixx="9.2478E-08" ixy="4.3975E-11" ixz="6.2557E-11" iyy="9.5911E-08" iyz="2.0215E-08" izz="2.9054E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger43_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger43_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger51_link">
+    <inertial>
+      <origin xyz="-2.2824E-06 0.0018149 0.013139" rpy="0 0 0"/>
+      <mass value="0.0034504"/>
+      <inertia ixx="2.3794E-07" ixy="-2.6265E-12" ixz="8.6014E-11" iyy="2.6911E-07" iyz="7.2418E-09" izz="1.3519E-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger51_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger51_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger52_link">
+    <inertial>
+      <origin xyz="-3.1534E-05 0.001792 0.0083594" rpy="0 0 0"/>
+      <mass value="0.0034587"/>
+      <inertia ixx="2.5319E-07" ixy="3.7687E-11" ixz="1.0696E-09" iyy="2.5692E-07" iyz="7.5776E-09" izz="6.1477E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger52_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger52_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rh_finger53_link">
+    <inertial>
+      <origin xyz="-0.0001026 -0.0027756 0.017057" rpy="0 0 0"/>
+      <mass value="0.0014968"/>
+      <inertia ixx="4.3984E-08" ixy="2.7281E-11" ixz="-2.4817E-10" iyy="4.7233E-08" iyz="8.3311E-09" izz="1.9545E-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger53_link.STL"/>
+      </geometry>
+      <material name="RP1_WHITE">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/hand/right/finger53_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rh_finger11" type="revolute">
+    <origin xyz="0.019011 -0.007805 0.03432" rpy="0 -3.0438E-05 1.5708"/>
+    <parent link="rh_base_link"/>
+    <child link="rh_finger11_link"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="0" upper="1.75" effort="0" velocity="0"/>
+  </joint>
+  <joint name="rh_finger12" type="revolute">
+    <origin xyz="-0.0024172 -0.015 0.0067143" rpy="1.1997 -0.2618 0"/>
+    <parent link="rh_finger11_link"/>
+    <child link="rh_finger12_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.40" effort="0" velocity="0"/>
+  </joint>
+  <joint name="rh_finger13" type="revolute">
+    <origin xyz="0 0 0.040273" rpy="0 0 0"/>
+    <parent link="rh_finger12_link"/>
+    <child link="rh_finger13_link"/>
+    <axis xyz="-1 0 0"/>
+    <limit lower="0" upper="1.13" effort="0" velocity="0"/>
+    <mimic joint="rh_finger12" multiplier="0.929" offset="-0.015082"/>
+  </joint>
+  <joint name="rh_finger14" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="rh_finger13_link"/>
+    <child link="rh_finger14_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <joint name="rh_finger21" type="revolute">
+    <origin xyz="0.026269 0.0052799 0.083877" rpy="-0.018831 0.11816 -0.15867"/>
+    <parent link="rh_base_link"/>
+    <child link="rh_finger21_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.40" effort="0" velocity="0"/>
+  </joint>
+  <joint name="rh_finger22" type="revolute">
+    <origin xyz="0 -0.0036408 0.027789" rpy="0 0 0"/>
+    <parent link="rh_finger21_link"/>
+    <child link="rh_finger22_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.75" effort="0" velocity="0"/>
+    <mimic joint="rh_finger21" multiplier="0.8847" offset="0.038265"/>
+  </joint>
+  <joint name="rh_finger23" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="rh_finger22_link"/>
+    <child link="rh_finger23_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <joint name="rh_finger31" type="revolute">
+    <origin xyz="0.008744 0.006507 0.088166" rpy="0.10576 0.052052 -0.049525"/>
+    <parent link="rh_base_link"/>
+    <child link="rh_finger31_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.40" effort="0" velocity="0"/>
+  </joint>
+  <joint name="rh_finger32" type="revolute">
+    <origin xyz="0 -0.00026526 0.03253" rpy="0 0 0"/>
+    <parent link="rh_finger31_link"/>
+    <child link="rh_finger32_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.75" effort="0" velocity="0"/>
+    <mimic joint="rh_finger31" multiplier="0.8485" offset="0.035946"/>
+  </joint>
+  <joint name="rh_finger33" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="rh_finger32_link"/>
+    <child link="rh_finger33_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <joint name="rh_finger41" type="revolute">
+    <origin xyz="-0.0088463 0.0073041 0.087413" rpy="0.082606 -0.034779 0.050937"/>
+    <parent link="rh_base_link"/>
+    <child link="rh_finger41_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.40" effort="0" velocity="0"/>
+  </joint>
+  <joint name="rh_finger42" type="revolute">
+    <origin xyz="0 0 0.029529" rpy="-0.084349 0 0"/>
+    <parent link="rh_finger41_link"/>
+    <child link="rh_finger42_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.75" effort="0" velocity="0"/>
+    <mimic joint="rh_finger41" multiplier="0.8321" offset="0.043170"/>
+  </joint>
+  <joint name="rh_finger43" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="rh_finger42_link"/>
+    <child link="rh_finger43_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <joint name="rh_finger51" type="revolute">
+    <origin xyz="-0.026313 0.0056254 0.083042" rpy="0.076915 -0.11667 0.14928"/>
+    <parent link="rh_base_link"/>
+    <child link="rh_finger51_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.40" effort="0" velocity="0"/>
+  </joint>
+  <joint name="rh_finger52" type="revolute">
+    <origin xyz="0 0 0.025024" rpy="0 0 0"/>
+    <parent link="rh_finger51_link"/>
+    <child link="rh_finger52_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="1.75" effort="0" velocity="0"/>
+    <mimic joint="rh_finger51" multiplier="0.7349" offset="0.035218"/>
+  </joint>
+  <joint name="rh_finger53" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="rh_finger52_link"/>
+    <child link="rh_finger53_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <joint name="rh_hand_mount" type="fixed">
+    <origin xyz="0.066 0.02781 -7e-05" rpy="3.14159265 -1.57079633 0"/>
+    <parent link="right_wrist_pitch_link"/>
+    <child link="rh_base_link"/>
+  </joint>
+</robot>
